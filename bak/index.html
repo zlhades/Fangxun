@@ -1,0 +1,33 @@
+<!doctype html>
+<html manifest="offline.manifest">
+  <head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	 <link data-minified="true" rel="stylesheet" href="jquery.mobile-1.0a4.1/jquery.mobile-1.0a4.1.css" />
+	<script type="text/javascript" src="jquery.mobile-1.0a4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.mobile-1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>	 
+	<link rel="stylesheet"  href="css/mycss.css">
+
+</head>
+<body>
+
+
+<div data-role="page" id="index">
+	<iframe scrolling="auto" frameborder="0" id="main_iframe" name="main_iframe" src="main.html" style="width:100%;"></iframe>
+	<iframe scrolling="no" frameborder="0" id="foot_iframe" name="foot_iframe" src="inc_footer.html" style="width:100%; height:50px;"></iframe>
+	
+</div>
+
+
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+	var win_height = $(document).height(); //浏览器当前窗口可视区域高度
+	 $("#main_iframe").css("height",win_height)
+	} 
+) 
+</script> 
+
+
+  </body>
+</html>

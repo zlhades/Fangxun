@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>基本的九宫格(http://www.cnblogs.com/binyong)</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .box{overflow:hidden;position:relative;width:50%;margin:50px auto;padding:10px;background:#F34703;}
+        .t_l,.t_m,.t_r{position:absolute;top:0;z-index:2;height:10px;font-size:0%;}
+        .t_l{left:0;width:10px;background:blue;}
+        .t_m{z-index:1;width:100%;background:orange;}
+        .t_r{right:0;width:10px;background:blue;}
+        .m_l,.m_r{position:absolute;z-index:2;width:10px;}
+        .m_l{top:0px;left:0;z-index:1;background:orange;height:2000px;}
+        .m_r{top:0px;right:0;z-index:1;background:orange;height:2000px;}
+        .b_l,.b_m,.b_r{position:absolute;bottom:0;z-index:2;height:10px;font-size:0%;}
+        .b_l{left:0;width:10px;background:blue;}
+        .b_m{z-index:1;width:100%;background:orange;}
+        .b_r{right:0;width:10px;background:blue;}
+        .m_m{width:100%;font-size:12px;color:#fff;}
+        h3{text-align:center;font-size:14px;line-height:26px;}
+        .m_m p{line-height:22px;padding:0 20px;}
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="t_l"></div>
+    <div class="t_m"></div>
+    <div class="t_r"></div>
+    <div class="m_l"></div>
+    <div class="m_m">
+        <h3>九宫格--基本模型</h3>
+        <p>这是一个九宫格基本布局模型，未加载任何图片，请随意拉伸缩放窗体大小，看看九宫格向各个方向自由伸展。</p>
+        <p>本模型测试在以下几个浏览器中完全通过：</p>
+        <p>IE6、IE7、IE8、FF3、TT、Maxthon2.1.5、Opera9.6、Safari4.0、Chrome2.0。</p>
+        <p style="text-align:right">更多原创请访问：<a href="http://www.cnblogs.com/binyong" title="去网站看看">冰极峰</a></p>
+    </div>
+    <div class="m_r"></div>
+    <div class="b_l"></div>
+    <div class="b_m"></div>
+    <div class="b_r"></div>
+</div>
+</body>
+</html>
