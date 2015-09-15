@@ -13,12 +13,6 @@
     <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
 
     <script type="text/javascript">
-        $.mobile.defaultDialogTransition = "flip";
-        function jump(url) {
-            window.location.href = url;
-//            document.getElementById("hidA").href= url;
-//            document.getElementById("hidA").click
-        }
     </script>
 </head>
 <body>
@@ -34,7 +28,7 @@
 
 
             <div class="ui-block-a block-center">
-                <a href="xq.htm" data-transition="flip" >
+                <a href="xq.htm" data-transition="flip">
                     <img src="img/icon/xq.png"/>
 
                     <div>汛情摘要</div>
@@ -42,6 +36,7 @@
             </div>
             <div class="ui-block-b block-center">
                 <a href="sq.htm" data-transition="flip">
+                <!--<a href="#" data-transition="flip">-->
                     <img src="img/icon/sq.png"/>
 
                     <div>水情信息</div>
@@ -101,9 +96,6 @@
 
         </div>
     </div>
-</div>
-<div style="display: none">
-    <a href="#" id="hidA" data-transition="flip"/>
 </div>
 </body>
 </html>
