@@ -1,6 +1,6 @@
-.block-center {text-align:center;height: 30%; }
+.block-center {text-align:center;height: 10em; }
 .block-center a {text-decoration:none;width: 100%;line-height: 100%}
-.block-center a img {width: 100%}
+.block-center a img {width: 6em}
 /*.block-center a img {width: 70%;height: 70%}*/
 .block-center a div {font-weight: 100;color: #333333}
 
