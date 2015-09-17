@@ -16,17 +16,53 @@
 
 <div data-role="page" id="homepage">
     <div data-role="header" data-position="fixed">
-        <a href="index.htm" data-transition="slidedown" data-role="button" data-icon="back" >返回</a>
+        <a href="index.htm" data-transition="flip" data-role="button" data-icon="slidedown" >返回</a>
 
         <h1>水情</h1>
         <!--<a href="#" data-transition="flip" data-role="button" data-icon="clock">历史</a>-->
     </div>
     <div data-role="navbar" class="nav_date">
         <div class="ui-grid-b">
-            <div style="width: 90%;" class="ui-block-a">
-                <input type="search" name="searchValue" id="searchId" class="inline-block" placeholder="行政区域" value="">
+            <div class="ui-block-a" style="width: 20%;">
+                <div style="text-align: right;height: 3em;margin-top:1em;">开始时间：</div>
+                <div style="text-align: right;height: 3em;margin-top:1em;">结束时间：</div>
             </div>
-            <div class="ui-block-b" style="width: 10%;">
+            <div style="width: 70%;horiz-align: left" class="ui-block-b" >
+               <div style="height: 3em;">
+                    <fieldset data-role="controlgroup" data-type="horizontal" style="width: 25em">
+                        <select name="s1">
+                            <option value="1">2015</option>
+                        </select>
+                        <select name="s2">
+                            <option value="2">1月</option>
+                        </select>
+                        <select name="s3">
+                            <option value="3">2日</option>
+                        </select>
+                        <select name="s4">
+                            <option value="4">4点</option>
+                        </select>
+                    </fieldset>
+               </div>
+                <div  style="height: 3em;">
+                    <fieldset data-role="controlgroup" data-type="horizontal"  style="width: 25em">
+                        <select name="s1">
+                            <option value="1">2015</option>
+                        </select>
+                        <select name="s2">
+                            <option value="2">1月</option>
+                        </select>
+                        <select name="s3">
+                            <option value="3">2日</option>
+                        </select>
+                        <select name="s4">
+                            <option value="4">4点</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+            </div>
+            <div class="ui-block-c" style="width: 10%;">
                 <a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
             </div>
         </div>
@@ -34,8 +70,6 @@
     </div>
 
     <div data-role="content">
-
-
         <table style="margin-left:auto;margin-right:auto;width: 100%;" class="small_font">
             <thead >
             <tr>
