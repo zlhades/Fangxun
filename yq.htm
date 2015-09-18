@@ -16,20 +16,20 @@
 
 <div data-role="page" id="homepage">
     <div data-role="header" data-position="fixed">
-        <a href="index.htm" data-transition="flip" data-role="button" data-icon="slidedown" >返回</a>
+        <a href="index.htm" data-role="button"  data-icon="back" data-icon="slidedown" >返回</a>
 
         <h1>水情</h1>
         <!--<a href="#" data-transition="flip" data-role="button" data-icon="clock">历史</a>-->
     </div>
-    <div data-role="navbar" class="nav_date">
+    <div data-role="navbar" class="nav_date" style="font-size: 70%">
         <div class="ui-grid-b">
-            <div class="ui-block-a" style="width: 20%;">
-                <div style="text-align: right;height: 3em;margin-top:1em;">开始时间：</div>
-                <div style="text-align: right;height: 3em;margin-top:1em;">结束时间：</div>
+            <div class="ui-block-a" style="width: 3em;">
+                <div style="text-align: right;height: 3em;margin-top:1em;">开始:</div>
+                <div style="text-align: right;height: 3em;margin-top:1em;">结束:</div>
             </div>
             <div style="width: 70%;horiz-align: left" class="ui-block-b" >
                <div style="height: 3em;">
-                    <fieldset data-role="controlgroup" data-type="horizontal" style="width: 25em">
+                    <fieldset data-role="controlgroup" data-type="horizontal"   data-mini="true" style="width: 25em;text-align: left">
                         <select name="s1">
                             <option value="1">2015</option>
                         </select>
@@ -45,7 +45,7 @@
                     </fieldset>
                </div>
                 <div  style="height: 3em;">
-                    <fieldset data-role="controlgroup" data-type="horizontal"  style="width: 25em">
+                    <fieldset data-role="controlgroup" data-type="horizontal"   data-mini="true" style="width: 25em;text-align: left">
                         <select name="s1">
                             <option value="1">2015</option>
                         </select>
@@ -62,7 +62,7 @@
                 </div>
 
             </div>
-            <div class="ui-block-c" style="width: 10%;">
+            <div class="ui-block-c" style="width: 4em;height: 6em;margin-top: 2em;float: right">
                 <a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
             </div>
         </div>
@@ -73,37 +73,27 @@
         <table style="margin-left:auto;margin-right:auto;width: 100%;" class="small_font">
             <thead >
             <tr>
-                <th data-priority="persist" style="width: 10%">序号</th>
-                <th data-priority="persist" style="width: 20%">站名</th>
-                <th data-priority="persist" style="width: 20%">水位(m)</th>
-                <th data-priority="persist" style="width: 20%">警戒/汛限(m)</th>
-                <th data-priority="persist" style="width: 20%">地区</th>
+                <th data-priority="persist" style="width: 20%">行政区</th>
+                <th data-priority="persist" style="width: 20%">监测站数</th>
+                <th data-priority="persist" style="width: 20%">昨日降水站数</th>
+                <th data-priority="persist" style="width: 20%">平均</th>
             </tr>
 
             </thead>
             <tbody>
             <tr>
-                <th colspan="5" style="text-align: left" >河道超保证</th>
-            </tr>
-            <tr>
-                <td>1</td>
                 <td>建阳</td>
-                <td>126.96</td>
-                <td>130.00</td>
-                <td>建阳县</td>
+                <td>126</td>
+                <td>13</td>
+                <td>32</td>
             </tr>
             <tr>
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
-                <td>1</td>
             </tr>
             <tr>
-                <th colspan="5" style="text-align: left">水道超保证</th>
-            </tr>
-            <tr>
-                <td>1</td>
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
@@ -114,7 +104,6 @@
                 <td>2</td>
                 <td>3</td>
                 <td>4</td>
-                <td>5</td>
             </tr>
             </tbody>
 
@@ -124,15 +113,7 @@
 
 
     </div>
-    <div data-role="footer"  data-position="fixed">
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#" class="ui-btn-active">超警站点</a></li>
-                <li><a href="#" >重要控制站</a></li>
-                <li><a href="#" >大中型水库</a></li>
-                <li><a href="#" >潮位站</a></li>
-            </ul>
-        </div>
+
 </div>
 </body>
 </html>
