@@ -19,3 +19,5 @@ th{font-weight:bold;background:#ccc;}
 .small_font{font-size: 70%;}
 
 .nav_date{text-align: center;}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:url(../img/bg.png) 50% 0 no-repeat;background-size:100% 100%;}
