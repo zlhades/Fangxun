@@ -20,4 +20,12 @@ th{font-weight:bold;background:#ccc;}
 
 .nav_date{text-align: center;}
 
-.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:url(../img/bg.png) 50% 0 no-repeat;background-size:100% 100%;}
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background: url(../img/bg.png) 50% 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.ui-header,.ui-header-fixed {
+    background: url(../img/bg.png) 50% 0 no-repeat;
+    background-size: 100% 100%;
+}
