@@ -5,23 +5,19 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/common.js"></script>
+
     <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css"/>
     <script src="js/jquery/jquery-1.11.3.min.js"></script>
     <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
-
-    <link rel="stylesheet" href="css/common.css">
 
 </head>
 <body>
 
 
 <div data-role="page" id="homepage">
-    <div data-role="header" data-position="fixed">
-        <a href="index.htm" data-role="button" data-icon="back" data-transition="slidedown" >返回</a>
 
-        <h1>汛情摘要</h1>
-        <!--<a href="#" data-transition="flip" data-role="button" data-icon="clock">历史</a>-->
-    </div>
     <div data-role="navbar" class="nav_date">2015年8月5日</div>
 
     <div data-role="content">
@@ -29,7 +25,9 @@
             <div>
                 <span style="font-weight: 900">[雨情]</span>2015年8月5日13时到2015年8月5日14时的统计情况
             </div>
-
+            <div style="text-align: center">
+                <span style="font-weight: 600">最大雨量： 600 株洲站</span>
+            </div>
         </div>
 
 
@@ -40,7 +38,7 @@
                 </th>
 
                 <th>
-                    数量
+                    站点数
                 </th>
             </tr>
 
@@ -96,11 +94,11 @@
         <table style="margin-left:auto;margin-right:auto;width: 80%">
             <tr>
                 <th>
-                    量级
+                    控制点
                 </th>
 
                 <th>
-                    数量
+                    实时水位
                 </th>
             </tr>
 
