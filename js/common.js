@@ -4,5 +4,27 @@
 //    $.mobile.ajaxFormsEnabled = false;
 //    $.mobile.ajaxEnabled = false;
 //});
-$.mobile.pageLoadErrorMessage = 'ÍøÂç²»¸øÁ¦£¬ÇëË¢ĞÂÖØÊÔ';
+$.mobile.pageLoadErrorMessage = 'ç½‘ç»œé—®é¢˜';
 $.mobile.transitionFallbacks.slideout ="none"
+
+
+var emptyVar;
+$(document).ready(function () {
+
+    var viewInfo = {
+        info: ko.observable(emptyVar),
+        table1: ko.observableArray(emptyVar),
+        table2: ko.observableArray(emptyVar)
+    };
+    ko.applyBindings(viewInfo);
+    var table1Data = [{lj:1,zds:2},{lj:3,zds:'3213213ä½ å¥½å—'}];
+    viewInfo.table1(table1Data);
+
+    var table2Data = [{lj:'3211111132133213ä½ å¥½å—',zds:2},{lj:3,zds:'3213213ä½ å¥½å—'}];
+    viewInfo.table2(table2Data);
+
+    var object = {val:3213213213211,name:'name'};
+    viewInfo.info(object);
+
+
+});

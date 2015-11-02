@@ -6,28 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="css/common.css">
-    <script src="js/common.js"></script>
+
 
     <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css"/>
     <script src="js/jquery/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-
-        $(document).bind("mobileinit", function()
-        {
-            if (navigator.userAgent.indexOf("Android") != -1)
-            {
-                $.mobile.defaultPageTransition = 'none';
-                $.mobile.defaultDialogTransition = 'none';
-            }
-        });
-    </script>
+    <script type='text/javascript' src='js/knockout.js'></script>
     <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/common.js"></script>
+
 
 </head>
 <body>
 
 
 <div data-role="page" id="homepage">
+
+    <script type="text/javascript">
+
+
+    </script>
 
     <div data-role="navbar" class="nav_date">2015年8月5日</div>
 
@@ -43,58 +40,34 @@
 
 
         <table style="margin-left:auto;margin-right:auto;width: 80%">
-            <tr>
-                <th>
-                    量级
-                </th>
+            <thead>
+                <tr>
+                    <th>
+                        量级
+                    </th>
 
-                <th>
-                    站点数
-                </th>
-            </tr>
+                    <th>
+                        站点数
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:table1" >
+                <tr>
+                    <td style="text-align: center;font-weight: 500" data-bind="text: lj">
 
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
+                    </td>
 
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
+                    <td style="text-align: center" data-bind="text: zds">
 
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
+                    </td>
+                </tr>
 
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
-
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-
+            </tbody>
 
         </table>
 
 
-        <div data-role="navbar">
+        <div data-role="navbar" >
             <div>
                 <span style="font-weight: 900">[水情]</span>2015年8月5日13时到2015年8月5日14时的统计情况
             </div>
@@ -113,42 +86,15 @@
                 </th>
             </tr>
 
+          <tbody data-bind="foreach:table2">
             <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
+                <td style="text-align: center;font-weight: 500"  data-bind="text: lj">
                 </td>
 
-                <td style="text-align: center">
-                    100
+                <td style="text-align: center"  data-bind="text: zds">
                 </td>
             </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
-
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
-
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;font-weight: 500">
-                    >250
-                </td>
-
-                <td style="text-align: center">
-                    100
-                </td>
-            </tr>
+          </tbody>
 
 
         </table>
