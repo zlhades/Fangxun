@@ -21,50 +21,35 @@
 
     <div data-role="page" id="homepage">
 
+
         <div data-role="navbar" class="nav_date">
             <div class="ui-grid-b">
-                <div class="ui-block-a" style="width: 1.5em;">
-                    <div style="text-align: right;height: 3em;margin-top:0.7em;">起:</div>
-                    <div style="text-align: right;height: 3em;margin-top:0.7em;">止:</div>
-                </div>
-                <div style="width: 70%;horiz-align: left" class="ui-block-b">
+                <div style="horiz-align: center;width: 22em;" class="ui-block-a">
+
                     <div style="height: 3em;">
+
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
-                                  style="width: 25em;text-align: left">
-                            <select name="s1">
-                                <option value="1">2015</option>
-                            </select>
-                            <select name="s2">
-                                <option value="2">1月</option>
-                            </select>
-                            <select name="s3">
-                                <option value="3">2日</option>
-                            </select>
-                            <select name="s4">
-                                <option value="4">4点</option>
-                            </select>
+                                >
+                            <a href="#" class="ui-btn ui-corner-all">起：</a>
+                            <select name="s1" class="sel_year" > </select>
+                            <select name="s2" class="sel_month" > </select>
+                            <select name="s3" class="sel_day">  </select>
+                            <select name="s4"  class="sel_hour"> </select>
                         </fieldset>
                     </div>
                     <div style="height: 3em;">
                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
-                                  style="width: 25em;text-align: left">
-                            <select name="s1">
-                                <option value="1">2015</option>
-                            </select>
-                            <select name="s2">
-                                <option value="2">1月</option>
-                            </select>
-                            <select name="s3">
-                                <option value="3">2日</option>
-                            </select>
-                            <select name="s4">
-                                <option value="4">4点</option>
-                            </select>
+                                >
+                            <a href="#" class="ui-btn ui-corner-all">止：</a>
+                            <select name="s1" class="end_sel_year"></select>
+                            <select name="s2" class="end_sel_month">   </select>
+                            <select name="s3" class="end_sel_day" ></select>
+                            <select name="s4" class="end_sel_hour"> </select>
                         </fieldset>
                     </div>
 
                 </div>
-                <div class="ui-block-c" style="width: 4em;height: 6em;margin-top: 2em;float: right">
+                <div class="ui-block-b" style="width: 4em;height: 6em;margin-top: 2em;float: right">
                     <a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
                 </div>
             </div>
@@ -89,9 +74,6 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th colspan="6" style="text-align: left">河道超保证</th>
-                </tr>
-                <tr>
                     <td>1</td>
                     <td>建阳</td>
                     <td>126.96</td>
@@ -99,33 +81,7 @@
                     <td>建阳县</td>
                     <td>建阳县</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <th colspan="6" style="text-align: left">水道超保证</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
+
                 </tbody>
 
             </table>
@@ -142,6 +98,33 @@
                 </ul>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function () {
+                $.getJSON("dataTest.htm", function(result){
+                    loadData(result);
+                });
+            });
+
+            var startTime=new Date();
+            var endTimeSeconds=startTime.getTime()-1000*60*60*2;
+            var endTime=new Date(endTimeSeconds);
+            $.ms_DatePicker({
+                YearSelector: ".sel_year",
+                MonthSelector: ".sel_month",
+                DaySelector: ".sel_day",
+                HourSelector: ".sel_hour",
+                DefaultDate : startTime
+            });
+            $.ms_DatePicker({
+                YearSelector: ".end_sel_year",
+                MonthSelector: ".end_sel_month",
+                DaySelector: ".end_sel_day",
+                HourSelector: ".end_sel_hour",
+                DefaultDate : endTime
+            });
+        </script>
+
     </div>
 </body>
 </html>
