@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/common.css">
+
+
+    <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css"/>
+    <script src="js/jquery/jquery-1.11.3.min.js"></script>
+    <script type='text/javascript' src='js/knockout.js'></script>
+    <script type='text/javascript' src='js/knockout.mapping-latest.js'></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+
+
+<div data-role="page" id="homepage" style="height:60em;">
+
+    <div data-role="content" id="main" style="height: 60em;width: 100%;padding: 0em; overflow: hidden" >
+
+        <iframe  scrolling="no"  onload="Javascript:SetWinHeight(this)"  frameborder="0" src="http://weather1.sina.cn/" style="margin: 0;padding: 0;overflow: hidden;width: 100%;height: 100%">
+
+        </iframe>
+
+
+    </div>
+    <script type="text/javascript">
+
+        function SetWinHeight(obj)
+        {
+            var win=obj;
+            if (document.getElementById)
+            {
+                if (win && !window.opera)
+                {
+                    if (win.contentDocument && win.contentDocument.body.offsetHeight)
+                        win.height = win.contentDocument.body.offsetHeight;
+                    else if(win.Document && win.Document.body.scrollHeight)
+                        win.height = win.Document.body.scrollHeight;
+                }
+            }
+        }
+
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/common.css">
+
+
+    <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css"/>
+    <script src="js/jquery/jquery-1.11.3.min.js"></script>
+
+
+    <script src="js/common.js"></script>
+    <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type='text/javascript' src='js/knockout.js'></script>
+    <script type='text/javascript' src='js/knockout.mapping-latest.js'></script>
+</head>
+<body>
+
+
+<div data-role="page" id="homepage">
+
+    <div data-role="navbar" class="nav_date">
+        <div class="ui-grid-b">
+            <div style="horiz-align: center;width: 22em;" class="ui-block-a">
+
+                <div style="height: 3em;">
+
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
+                            >
+                        <a href="#" class="ui-btn ui-corner-all">起：</a>
+                        <select name="s1" class="sel_year" > </select>
+                        <select name="s2" class="sel_month" > </select>
+                        <select name="s3" class="sel_day">  </select>
+                        <select name="s4"  class="sel_hour"> </select>
+                    </fieldset>
+                </div>
+                <div style="height: 3em;">
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
+                            >
+                        <a href="#" class="ui-btn ui-corner-all">止：</a>
+                        <select name="s1" class="end_sel_year"></select>
+                        <select name="s2" class="end_sel_month">   </select>
+                        <select name="s3" class="end_sel_day" ></select>
+                        <select name="s4" class="end_sel_hour"> </select>
+                    </fieldset>
+                </div>
+
+            </div>
+            <div class="ui-block-b" style="width: 4em;height: 6em;margin-top: 2em;float: right">
+                <a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="content" id="content">
+        <table style="margin-left:auto;margin-right:auto;width: 100%;" class="small_font">
+            <thead >
+            <tr>
+                <th data-priority="persist" >量级</th>
+                <th data-priority="persist" >站点数</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+                <td>株洲</td>
+                <td>126</td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="ylxq.htm">雨量详情</a></li>
+                <li><a href="yltj.htm"  class="ui-btn-active">量级统计</a></li>
+                <li><a href="ylzd.htm">最大雨量</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("dataTest.htm", function(result){
+                loadData(result);
+            });
+        });
+
+        var startTime=new Date();
+        var endTimeSeconds=startTime.getTime()-1000*60*60*2;
+        var endTime=new Date(endTimeSeconds);
+        $.ms_DatePicker({
+            YearSelector: ".sel_year",
+            MonthSelector: ".sel_month",
+            DaySelector: ".sel_day",
+            HourSelector: ".sel_hour",
+            DefaultDate : startTime
+        });
+        $.ms_DatePicker({
+            YearSelector: ".end_sel_year",
+            MonthSelector: ".end_sel_month",
+            DaySelector: ".end_sel_day",
+            HourSelector: ".end_sel_hour",
+            DefaultDate : endTime
+        });
+    </script>
+</div>
+</body>
+</html>
