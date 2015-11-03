@@ -12,9 +12,10 @@
     <script src="js/jquery/jquery-1.11.3.min.js"></script>
     <script type='text/javascript' src='js/knockout.js'></script>
     <script type='text/javascript' src='js/knockout.mapping-latest.js'></script>
+    <script src="js/common.js"></script>
+
     <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="css/index.css"/>
-    <script src="js/common.js"></script>
 </head>
 <style type="text/css">
     body {background-image:url(img/bg.png);
@@ -23,19 +24,19 @@
 <body  style="background-image:url(img/bg.png);">
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+    <div data-role="content" id="content">
         <div class="ui-grid-b">
 
 
             <div class="ui-block-a block-center">
-                <a href="xq.htm" data-transition="slidedown" >
+                <a href="xq.htm" data-transition="slidedown"   >
                     <img src="img/icon/xq.png"/>
 
                     <div>汛情摘要</div>
                 </a>
             </div>
             <div class="ui-block-c block-center">
-                <a href="yq.htm" data-transition="slidedown" >
+                <a href="yq.htm" data-transition="slidedown" data-ajax=“false” >
                     <img src="img/icon/yq.png"/>
 
                     <div>雨情信息</div>
@@ -96,6 +97,7 @@
             </div>
 
         </div>
+
     </div>
 </div>
 </body>

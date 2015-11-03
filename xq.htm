@@ -12,8 +12,9 @@
     <script src="js/jquery/jquery-1.11.3.min.js"></script>
     <script type='text/javascript' src='js/knockout.js'></script>
     <script type='text/javascript' src='js/knockout.mapping-latest.js'></script>
-    <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+
 
 
 </head>
@@ -24,9 +25,10 @@
 
 
 
-    <div data-role="navbar" class="nav_date">2015年8月5日111<span data-bind="text: $root.info1">5555</span></div>
 
-    <div data-role="content">
+    <div data-role="navbar" class="nav_date"  >2015年8月5日111</div>
+
+    <div data-role="content"  id="content">
         <div data-role="navbar">
             <div>
                 <span style="font-weight: 900">[雨情]</span>2015年8月5日13时到2015年8月5日14时的统计情况
@@ -49,13 +51,13 @@
                     </th>
                 </tr>
             </thead>
-            <tbody data-bind="foreach:table1" >
+            <tbody data-bind="foreach:table" >
                 <tr>
-                    <td style="text-align: center;font-weight: 500" data-bind="text: lj">
+                    <td style="text-align: center;font-weight: 500" data-bind="text: LJ">
 
                     </td>
 
-                    <td style="text-align: center" data-bind="text: zds">
+                    <td style="text-align: center" data-bind="text: ZDS">
 
                     </td>
                 </tr>
@@ -86,19 +88,29 @@
 
           <tbody data-bind="foreach:table2">
             <tr>
-                <td style="text-align: center;font-weight: 500"  data-bind="text: lj">
+                <td style="text-align: center;font-weight: 500"  data-bind="text: KZD">
                 </td>
 
-                <td style="text-align: center"  data-bind="text: zds">
+                <td style="text-align: center"  data-bind="text: SSSW">
                 </td>
             </tr>
           </tbody>
 
 
         </table>
+        </div>
 
 
-    </div>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("dataTest.htm", function(result){
+                loadData(result);
+            });
+        });
+    </script>
+
 </div>
+
+
 </body>
 </html>
