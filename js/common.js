@@ -125,9 +125,9 @@ function convertDateValueToString(number,type){
 
 
 function loadData(data){
-    ko.cleanNode(document.getElementById("homepage"));
+    ko.cleanNode(document.getElementById("content"));
     viewModel = ko.mapping.fromJS(data);
-    ko.applyBindings(viewModel, document.getElementById("homepage"));
+    ko.applyBindings(viewModel, document.getElementById("content"));
     ko.mapping.fromJS(data, viewModel);
 }
 
