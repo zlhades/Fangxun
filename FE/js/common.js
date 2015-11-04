@@ -116,7 +116,7 @@ function convertDateValueToString(number,type){
     }else if(type==2) {
         endFix="日"
     }else if(type==3) {
-        endFix="点"
+        endFix="时"
     }
 
     return number+endFix;
@@ -161,6 +161,26 @@ function joinDate(){
     return encodeURIComponent("startTime="+startTime+"&"+"endTime="+endTime);
 }
 
+
+function initDate(){
+    var startTime=new Date();
+    var endTimeSeconds=startTime.getTime()-1000*60*60*2;
+    var endTime=new Date(endTimeSeconds);
+    $.ms_DatePicker({
+        YearSelector: ".sel_year",
+        MonthSelector: ".sel_month",
+        DaySelector: ".sel_day",
+        HourSelector: ".sel_hour",
+        DefaultDate : startTime
+    });
+    $.ms_DatePicker({
+        YearSelector: ".end_sel_year",
+        MonthSelector: ".end_sel_month",
+        DaySelector: ".end_sel_day",
+        HourSelector: ".end_sel_hour",
+        DefaultDate : endTime
+    });
+}
 
 var httpPrefix="http://www.zzsw.gov.cn:8088/"
 
