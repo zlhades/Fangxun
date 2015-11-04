@@ -122,17 +122,25 @@ function convertDateValueToString(number,type){
     return number+endFix;
 }
 
-
+var viewModel;
 function loadData(data){
+
     ko.cleanNode(document.getElementById("content"));
-    var viewModel = ko.mapping.fromJS(data);
+    viewModel = ko.mapping.fromJS(data);
     ko.applyBindings(viewModel, document.getElementById("content"));
     ko.mapping.fromJS(data, viewModel);
+
 }
 
 function loadJson(url){
     $.getJSON(httpPrefix+url, function(result){
         loadData(result);
+    });
+}
+
+function loadForTable(url){
+    $.getJSON(httpPrefix+url, function(result){
+        viewModel.table(result.table);
     });
 }
 

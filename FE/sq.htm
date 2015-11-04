@@ -98,13 +98,11 @@
 
         <script>
             $(document).ready(function () {
-                reload();
+                loadJson("sqxx.aspx?"+joinDate())
             });
 
             function reload(){
-//                $data.table=[];
-//                alert($data.table);
-                loadJson("sqxx.aspx?"+joinDate());
+                loadForTable("sqxx.aspx?"+joinDate());
             }
 
             var startTime=new Date();
