@@ -148,3 +148,6 @@ function joinDate(){
     return encodeURIComponent("startTime="+startTime+"&"+"endTime="+endTime);
 }
 
+
+var httpPrefix="http://www.zzsw.gov.cn:8088/"
+

@@ -61,37 +61,19 @@
         <table style="margin-left:auto;margin-right:auto;width: 100%;" class="small_font">
             <thead >
             <tr>
-                <th data-priority="persist" style="width: 20%">行政区</th>
-                <th data-priority="persist" style="width: 20%">监测站数</th>
-                <th data-priority="persist" style="width: 20%">昨日降水站数</th>
-                <th data-priority="persist" style="width: 20%">平均</th>
+                <th data-priority="persist">序号</th>
+                <th data-priority="persist" >行政区划</th>
+                <th data-priority="persist" >站名</th>
+                <th data-priority="persist">雨量</th>
             </tr>
 
             </thead>
-            <tbody>
+            <tbody  data-bind="foreach:table">
             <tr>
-                <td>株洲</td>
-                <td>126</td>
-                <td>13</td>
-                <td>32</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
+                <td data-bind="text: XZQH"></td>
+                <td data-bind="text: ZM"></td>
+                <td data-bind="text: ZM">13</td>
+                <td  data-bind="text: ZM">32</td>
             </tr>
             </tbody>
 
@@ -133,8 +115,7 @@
             DefaultDate : endTime
         });
         $(document).ready(function () {
-            $.getJSON("dataTest.htm?"+joinDate(), function(result){
-                joinDate();
+            $.getJSON(httpPrefix+"sqxx.aspx?"+joinDate(), function(result){
                 loadData(result);
             });
         });
