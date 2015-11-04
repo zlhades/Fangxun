@@ -156,9 +156,9 @@ function joinDate(){
     var eday = $("#end_sel_day").val();
     var ehour = $("#end_sel_hour").val();
 
-    var startTime = year+"-"+month+"-"+day+" "+hour;
-    var endTime = eyear+"-"+emonth+"-"+eday+" "+ehour;
-    return encodeURIComponent("startTime="+startTime+"&"+"endTime="+endTime);
+    var startTime = year+"-"+month+"-"+day+" "+hour+":00:00";
+    var endTime = eyear+"-"+emonth+"-"+eday+" "+ehour+":00:00";
+    return encodeURI("startTime="+startTime+"&"+"endTime="+endTime);
 }
 
 
