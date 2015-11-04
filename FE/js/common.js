@@ -130,6 +130,11 @@ function loadData(data){
     ko.mapping.fromJS(data, viewModel);
 }
 
+function loadJson(url){
+    $.getJSON(httpPrefix+url, function(result){
+        loadData(result);
+    });
+}
 
 function joinDate(){
 

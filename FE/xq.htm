@@ -26,15 +26,16 @@
 
 
 
-    <div data-role="navbar" class="nav_date"  >2015年8月5日111</div>
+
 
     <div data-role="content"  id="content">
+        <div data-role="navbar" class="nav_date" data-bind="text: YQJSSJ"  ></div>
         <div data-role="navbar">
             <div>
-                <span style="font-weight: 900">[雨情]</span>2015年8月5日13时到2015年8月5日14时的统计情况
+                <span style="font-weight: 900">[雨情]</span><span data-bind="text: YQKSSJ"></span>到<span data-bind="text: YQJSSJ"></span>的统计情况
             </div>
             <div style="text-align: center">
-                <span style="font-weight: 600">最大雨量： 600 株洲站</span>
+                <span style="font-weight: 600">最大雨量： <span data-bind="text: ZDYL"></span> <span data-bind="text: ZDYLZD"></span></span>
             </div>
         </div>
 
@@ -69,7 +70,7 @@
 
         <div data-role="navbar" >
             <div>
-                <span style="font-weight: 900">[水情]</span>2015年8月5日13时到2015年8月5日14时的统计情况
+                <span style="font-weight: 900">[水情]</span><span data-bind="text: SQKSSJ"></span>到<span data-bind="text: SQJSSJ"></span>的统计情况
             </div>
 
         </div>
@@ -103,9 +104,7 @@
 
     <script>
         $(document).ready(function () {
-            $.getJSON(httpPrefix+"xqxx.aspx", function(result){
-                loadData(result);
-            });
+            loadJson("xqxx.aspx");
         });
     </script>
 
