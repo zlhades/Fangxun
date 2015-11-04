@@ -4,7 +4,7 @@
     android:id="@id/title_view"
     android:layout_width="fill_parent"
     android:layout_height="50.0dip"
-    android:background="@drawable/bg_header">
+    android:background="@drawable/bg">
 
     <Button
         android:id="@id/gohome_btn"

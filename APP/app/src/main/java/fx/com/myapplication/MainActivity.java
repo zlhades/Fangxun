@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
     //    Button right;
     Button left;
     Button right;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadIndex() {
-        wView.loadUrl("http://111.1.31.149/fx/index.htm");
+        wView.loadUrl(INDEX_PAGE);
     }
 
     private void refresh() {
