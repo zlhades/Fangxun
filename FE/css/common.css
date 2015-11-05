@@ -18,6 +18,12 @@ th{font-weight:bold;background:#ccc;}
 
 .small_font{font-size: 100%;}
 
+@media screen and (min-width: 400px) {
+    .date_div {
+        min-width: 90%;
+    }
+}
+
 .nav_date{text-align: center;}
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
