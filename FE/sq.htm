@@ -23,11 +23,11 @@
 
 
         <div data-role="navbar" class="nav_date">
-            <div class="ui-grid-b">
-                <div style="horiz-align: right;width: 21em;float: left" >
-                    <div style="height: 3em;">
-                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                            <a href="#" class="ui-btn ui-corner-all">起:</a>
+            <div class="ui-grid-b" style="horiz-align:center">
+                <div style="horiz-align: right;float: left;" class="date_div">
+                    <div style="height: 3em;"  >
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"  class="date_div" >
+                            <a href="#" class="ui-btn ui-corner-all"  >起:</a>
                             <select name="s1" class="sel_year"  id="sel_year"> </select>
                             <select name="s2" class="sel_month" id="sel_month" > </select>
                             <select name="s3" class="sel_day" id="sel_day">  </select>
@@ -44,7 +44,7 @@
                         </fieldset>
                     </div>
                 </div>
-                <div  style="width: 2em;margin-top: 2em;float: left">
+                <div  style="width: 2em;margin-top: 1.8em;float: left">
                     <a href="javascript:reload()" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
                 </div>
             </div>
@@ -82,16 +82,7 @@
 
 
         </div>
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" class="ui-btn-active">超警站点</a></li>
-                    <li><a href="#">重要控制站</a></li>
-                    <li><a href="#">大中型水库</a></li>
-                    <li><a href="#">潮位站</a></li>
-                </ul>
-            </div>
-        </div>
+
 
         <script>
             $(document).ready(function () {
