@@ -25,40 +25,34 @@
 
     <div data-role="navbar" class="nav_date">
         <div class="ui-grid-b">
-            <div style="horiz-align: center;width: 22em;" class="ui-block-a">
-
+            <div style="horiz-align: right;width: 21em;float: left" >
                 <div style="height: 3em;">
-
-                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
-                            >
-                        <a href="#" class="ui-btn ui-corner-all">起：</a>
-                        <select name="s1" class="sel_year" > </select>
-                        <select name="s2" class="sel_month" > </select>
-                        <select name="s3" class="sel_day">  </select>
-                        <select name="s4"  class="sel_hour"> </select>
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <a href="#" class="ui-btn ui-corner-all">起:</a>
+                        <select name="s1" class="sel_year"  id="sel_year"> </select>
+                        <select name="s2" class="sel_month" id="sel_month" > </select>
+                        <select name="s3" class="sel_day" id="sel_day">  </select>
+                        <select name="s4"  class="sel_hour" id="sel_hour"> </select>
                     </fieldset>
                 </div>
                 <div style="height: 3em;">
-                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"
-                            >
-                        <a href="#" class="ui-btn ui-corner-all">止：</a>
-                        <select name="s1" class="end_sel_year"></select>
-                        <select name="s2" class="end_sel_month">   </select>
-                        <select name="s3" class="end_sel_day" ></select>
-                        <select name="s4" class="end_sel_hour"> </select>
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
+                        <a href="#" class="ui-btn ui-corner-all">止:</a>
+                        <select name="s1" class="end_sel_year" id="end_sel_year"></select>
+                        <select name="s2" class="end_sel_month" id="end_sel_month">   </select>
+                        <select name="s3" class="end_sel_day" id="end_sel_day" ></select>
+                        <select name="s4" class="end_sel_hour"  id="end_sel_hour" > </select>
                     </fieldset>
                 </div>
-
             </div>
-            <div class="ui-block-b" style="width: 4em;height: 6em;margin-top: 2em;float: right">
-                <a href="#" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
+            <div  style="width: 2em;margin-top: 2em;float: left">
+                <a href="javascript:reload()" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
             </div>
         </div>
-
     </div>
 
     <div data-role="content" id="content">
-        <table style="margin-left:auto;margin-right:auto;width: 100%;" class="small_font">
+        <table  class="big-table">
             <thead >
             <tr>
                 <th data-priority="persist" >量级</th>
@@ -66,10 +60,10 @@
             </tr>
 
             </thead>
-            <tbody>
+            <tbody data-bind="foreach:table">
             <tr>
-                <td>株洲</td>
-                <td>126</td>
+                <td data-bind="text: LJ"></td>
+                <td data-bind="text: ZDS"></td>
             </tr>
 
             </tbody>
@@ -93,28 +87,12 @@
 
     <script>
         $(document).ready(function () {
-            $.getJSON("dataTest.htm", function(result){
-                loadData(result);
-            });
+            loadJson("ljtj.aspx?"+joinDate())
         });
-
-        var startTime=new Date();
-        var endTimeSeconds=startTime.getTime()-1000*60*60*2;
-        var endTime=new Date(endTimeSeconds);
-        $.ms_DatePicker({
-            YearSelector: ".sel_year",
-            MonthSelector: ".sel_month",
-            DaySelector: ".sel_day",
-            HourSelector: ".sel_hour",
-            DefaultDate : startTime
-        });
-        $.ms_DatePicker({
-            YearSelector: ".end_sel_year",
-            MonthSelector: ".end_sel_month",
-            DaySelector: ".end_sel_day",
-            HourSelector: ".end_sel_hour",
-            DefaultDate : endTime
-        });
+        function reload(){
+            loadForTable("ljtj.aspx?"+joinDate());
+        }
+        initDate();
     </script>
 </div>
 </body>
