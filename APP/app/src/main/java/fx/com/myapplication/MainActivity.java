@@ -14,7 +14,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
+    //    public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
+    public static final String INDEX_PAGE = "http://111.1.31.149/fx/index.htm";
     //    Button right;
     Button left;
     Button right;
