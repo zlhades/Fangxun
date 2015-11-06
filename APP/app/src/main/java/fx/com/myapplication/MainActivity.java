@@ -1,6 +1,7 @@
 package fx.com.myapplication;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -12,6 +13,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,12 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLoadResource(WebView view, String url) {
-                if(url.endsWith("htm"))
-                    changeTitle(url);
-                super.onLoadResource(view, url);
+//                if(url.endsWith("htm"))
+//                    changeTitle(url);
+//                super.onLoadResource(view, url);
             }
         });
-        wView.setBackgroundColor(0);
+        wView.setBackgroundColor(Color.TRANSPARENT);
 
         this.loadIndex();
 
@@ -86,13 +90,35 @@ public class MainActivity extends AppCompatActivity {
     private void changeTitle(String url) {
         String[] result = url.split("/");
 
-        titleBar.setText(result[result.length-1]);
+        setTitle(result[result.length - 1]);
         if (url!=null && url.contains("index.htm")) {
             disableLeftButton();
         } else {
             enaLeftButton();
         }
 
+    }
+
+    private final static Map<String, String> URL_TO_NAME = new HashMap<>();
+    static {
+        URL_TO_NAME.put("index.htm","株洲防汛");
+        URL_TO_NAME.put("xq.htm","汛情摘要");
+        URL_TO_NAME.put("ylxq.htm","雨情信息");
+        URL_TO_NAME.put("sq.htm","水情信息");
+        URL_TO_NAME.put("yjcx.htm","预警查询");
+        URL_TO_NAME.put("gqsk.htm","工情信息");
+        URL_TO_NAME.put("tq.htm","天气预报");
+        URL_TO_NAME.put("zl.htm","防汛资料");
+        URL_TO_NAME.put("tx.htm","防汛通讯录");
+        URL_TO_NAME.put("sz.htm","系统设置");
+    }
+
+    private void setTitle(String text) {
+        for (String url : URL_TO_NAME.keySet()) {
+            if (text.contains(url)) {
+                titleBar.setText(URL_TO_NAME.get(url));
+            }
+        }
     }
 
     private void enaLeftButton() {
