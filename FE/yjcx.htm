@@ -21,8 +21,7 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
-
+    <div data-role="content" id="content">
 
 
         <table>
@@ -41,29 +40,23 @@
                     预警类型
                 </th>
             </tr>
-
+            <tbody data-bind="foreach:table">
             <tr>
-                <td style="text-align: center;font-weight: 500">
-                   1
+                <td   data-bind="text: XH">
                 </td>
-
-                <td style="text-align: center">
-                    <a href="yjcxxq.htm">株洲</a>
+                <td>
+                    <a   data-bind="attr: { href: getURL(XH), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>
                 </td>
-                     <td style="text-align: center">
-                    3232132
+                <td  data-bind="text: YJMC">
                 </td>
-                <td style="text-align: center">
-                    100
+                <td data-bind="text: YJLX">
                 </td>
             </tr>
 
-
+            </tbody>
 
 
         </table>
-
-
 
 
     </div>
@@ -72,11 +65,19 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="yjcx.htm" class="ui-btn-active">预警查询</a></li>
-                <li><a href="xyxx.htm">响应信息</a></li>
+                <li><a href="yjxy.htm">响应信息</a></li>
                 <li><a href="zqxx.htm">灾情信息</a></li>
             </ul>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            loadJson("yjcx.aspx")
+        });
+        function getURL(id) {
+            return "xiangqin.htm?type=yjcx&id="+id();
+        }
+    </script>
 </div>
 </body>
 </html>
