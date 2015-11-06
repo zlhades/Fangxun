@@ -25,7 +25,7 @@
 
 
 
-        <table style="margin-left:auto;margin-right:auto;width: 100%">
+        <table >
             <tr>
                 <th>
                     序号
@@ -48,7 +48,7 @@
                 </td>
 
                 <td style="text-align: center">
-                    <a href="yjcxxq.htm">株洲</a>
+                    <a href="xiangqin.htm">株洲</a>
                 </td>
                      <td style="text-align: center">
                     2015年11月11日 22时
@@ -71,11 +71,20 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="yjcx.htm" >预警查询</a></li>
-                <li><a href="xyxx.htm" class="ui-btn-active">响应信息</a></li>
+                <li><a href="yjxy.htm" class="ui-btn-active">响应信息</a></li>
                 <li><a href="zqxx.htm">灾情信息</a></li>
             </ul>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            loadJson("yjcx.aspx")
+        });
+        function getURL(id) {
+            return "xiangqin.htm?type=yjcx&id="+id();
+        }
+    </script>
 </div>
 </body>
 </html>
