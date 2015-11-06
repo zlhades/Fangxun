@@ -21,61 +21,64 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+
+    <div data-role="content" id="content">
 
 
 
-        <table style="margin-left:auto;margin-right:auto;width: 100%">
+        <table>
             <tr>
                 <th>
                     序号
                 </th>
-
                 <th>
                     行政区划
                 </th>
                 <th>
-                    反馈时间
+                    泵站名称
                 </th>
                 <th>
-                    已转移人数
+                    设计流量
+                </th>
+                <th>
+                    装机容量
                 </th>
             </tr>
-
+        <tbody data-bind="foreach:table">
             <tr>
-                <td style="text-align: center;font-weight: 500">
-                  1
+                <td data-bind="text: XH"></td >
+                <td data-bind="text: XZQH"></td>
+                <td>
+                    <a data-bind="attr: { href: getURL(XH), title: BZMC }"> <span data-bind="text: BZMC"></span></a>
                 </td>
-
-                <td style="text-align: center">
-                    <a href="yjcxxq.htm">株洲</a>
-                </td>
-                     <td style="text-align: center">
-                    2015年11月11日 22时
-                </td>
-                <td style="text-align: center">
-                    100
-                </td>
+                <td data-bind="text: SJLL"></td>
+                <td data-bind="text: ZJRL"></td>
             </tr>
-
-
-
+        </tbody>
         </table>
 
 
 
 
     </div>
-
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="yjcx.htm" >预警查询</a></li>
-                <li><a href="xyxx.htm" class="ui-btn-active">响应信息</a></li>
-                <li><a href="zqxx.htm">灾情信息</a></li>
+                <li><a href="gqsk.htm">水库信息</a></li>
+                <li><a href="gqhd.htm">河道信息</a></li>
+                <li><a href="gqdf.htm" >堤防信息</a></li>
+                <li><a href="gqbz.htm"  class="ui-btn-active">泵站信息</a></li>
             </ul>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            loadJson("bzxx.aspx")
+        });
+        function getURL(id) {
+            return "xiangqin.htm?type=bzxx&id="+id();
+        }
+    </script>
 </div>
 </body>
 </html>

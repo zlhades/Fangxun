@@ -34,24 +34,25 @@
                     行政区划
                 </th>
                 <th>
-                    预警名称
+                    反馈时间
                 </th>
                 <th>
-                    预警类型
+                    已转移人数
                 </th>
             </tr>
             <tbody data-bind="foreach:table">
-                <tr>
-                    <td   data-bind="text: XH">
-                    </td>
-                    <td>
-                        <a   data-bind="attr: { href: getURL(XH), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>
-                    </td>
-                    <td  data-bind="text: YJMC">
-                    </td>
-                    <td data-bind="text: YJLX">
-                    </td>
-                </tr>
+            <tr>
+                <td data-bind="text: XH">
+                </td>
+
+                <td>
+                    <a data-bind="attr: { href: getURL(XH), title: XZQH }"> <span data-bind="text: XZQH"></span></a>
+                </td>
+                <td data-bind="text: FKSJ">
+                </td>
+                <td data-bind="text: YZYRS">
+                </td>
+            </tr>
             </tbody>
 
 
@@ -63,18 +64,19 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="yjcx.htm" class="ui-btn-active">预警查询</a></li>
-                <li><a href="yjxy.htm">响应信息</a></li>
+                <li><a href="yjcx.htm">预警查询</a></li>
+                <li><a href="yjxy.htm" class="ui-btn-active">响应信息</a></li>
                 <li><a href="yjzq.htm">灾情信息</a></li>
             </ul>
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
-            loadJson("yjcx.aspx")
+            loadJson("xyxx.aspx")
         });
         function getURL(id) {
-            return "xiangqin.htm?type=yjcx&id="+id();
+            return "xiangqin.htm?type=xyxx&id="+id();
         }
     </script>
 </div>

@@ -21,74 +21,68 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+
+    <div data-role="content" id="content">
 
 
 
-        <table style="margin-left:auto;margin-right:auto;width: 100%">
+        <table>
             <tr>
                 <th>
                     序号
                 </th>
-
                 <th>
                     行政区划
                 </th>
                 <th>
-                    统计截止时间
+                    堤防名称
                 </th>
                 <th>
-                    死亡人数
+                    长度
                 </th>
                 <th>
-                    失踪人数
+                    高程
                 </th>
                 <th>
-                    倒塌房屋
+                    设计洪水位
                 </th>
             </tr>
-
+        <tbody data-bind="foreach:table">
             <tr>
-                <td style="text-align: center;font-weight: 500">
-                    1
+                <td data-bind="text: XH"></td >
+                <td data-bind="text: XZQH"></td>
+                <td>
+                    <a data-bind="attr: { href: getURL(XH), title: DFMC }"> <span data-bind="text: DFMC"></span></a>
                 </td>
-
-                <td style="text-align: center">
-                    <a href="yjcxxq.htm">株洲</a>
-                </td>
-                     <td style="text-align: center">
-                    2015年11月11日 22时
-                </td>
-                <td style="text-align: center">
-                    100
-                </td>
-                </td>
-                <td style="text-align: center">
-                    2015年11月11日 22时
-                </td>
-                <td style="text-align: center">
-                    100
-                </td>
+                <td data-bind="text: CD"></td>
+                <td data-bind="text: GC"></td>
+                <td data-bind="text: SJHSW"></td>
             </tr>
-
-
-
+        </tbody>
         </table>
 
 
 
 
     </div>
-
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="yjcx.htm" >预警查询</a></li>
-                <li><a href="xyxx.htm">响应信息</a></li>
-                <li><a href="zqxx.htm"  class="ui-btn-active">灾情信息</a></li>
+                <li><a href="gqsk.htm">水库信息</a></li>
+                <li><a href="gqhd.htm">河道信息</a></li>
+                <li><a href="gqdf.htm"  class="ui-btn-active">堤防信息</a></li>
+                <li><a href="gqbz.htm">泵站信息</a></li>
             </ul>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            loadJson("dfxx.aspx")
+        });
+        function getURL(id) {
+            return "xiangqin.htm?type=dfxx&id="+id();
+        }
+    </script>
 </div>
 </body>
 </html>
