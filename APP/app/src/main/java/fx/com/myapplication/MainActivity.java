@@ -10,6 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,19 +22,23 @@ public class MainActivity extends AppCompatActivity {
     Button right;
     WebView wView;
     TextView titleBar;
-
+    ProgressBar pb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        pb = (ProgressBar) findViewById(R.id.pb);
+        pb.setMax(100);
+
         titleBar = (TextView) findViewById(R.id.title_name);
         wView = (WebView) findViewById(R.id.webView);
         WebSettings wSet = wView.getSettings();
         wSet.setJavaScriptEnabled(true);
-        wView.setWebChromeClient(new WebChromeClient());
+        wView.setWebChromeClient(new WebChromeClientCustom());
         wView.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                pb.setVisibility(View.VISIBLE);
                 changeTitle(url);
                 wView.loadUrl(url);
                 return true;
@@ -114,6 +119,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void refresh() {
         wView.reload();
+    }
+
+    private class WebChromeClientCustom extends WebChromeClient {
+        @Override
+        public void onProgressChanged(WebView view, int newProgress) {
+            pb.setProgress(newProgress);
+            if(newProgress==100){
+                pb.setVisibility(View.GONE);
+            }
+            super.onProgressChanged(view, newProgress);
+        }
+
     }
 
 }
