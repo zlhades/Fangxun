@@ -21,11 +21,10 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+    <div data-role="content" id="content">
 
 
-
-        <table >
+        <table>
             <tr>
                 <th>
                     序号
@@ -41,28 +40,23 @@
                     已转移人数
                 </th>
             </tr>
-
+            <tbody data-bind="foreach:table">
             <tr>
-                <td style="text-align: center;font-weight: 500">
-                  1
+                <td data-bind="text: XH">
                 </td>
 
-                <td style="text-align: center">
-                    <a href="xiangqin.htm">株洲</a>
+                <td>
+                    <a data-bind="attr: { href: getURL(XH), title: XZQH }"> <span data-bind="text: XZQH"></span></a>
                 </td>
-                     <td style="text-align: center">
-                    2015年11月11日 22时
+                <td data-bind="text: FKSJ">
                 </td>
-                <td style="text-align: center">
-                    100
+                <td data-bind="text: YZYRS">
                 </td>
             </tr>
-
+            </tbody>
 
 
         </table>
-
-
 
 
     </div>
@@ -70,19 +64,19 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="yjcx.htm" >预警查询</a></li>
+                <li><a href="yjcx.htm">预警查询</a></li>
                 <li><a href="yjxy.htm" class="ui-btn-active">响应信息</a></li>
-                <li><a href="zqxx.htm">灾情信息</a></li>
+                <li><a href="yjzq.htm">灾情信息</a></li>
             </ul>
         </div>
     </div>
 
     <script>
         $(document).ready(function () {
-            loadJson("yjcx.aspx")
+            loadJson("xyxx.aspx")
         });
         function getURL(id) {
-            return "xiangqin.htm?type=yjcx&id="+id();
+            return "xiangqin.htm?type=xyxx&id="+id();
         }
     </script>
 </div>

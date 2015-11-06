@@ -24,7 +24,8 @@
     <div data-role="content" id="content">
 
 
-        <table>
+
+        <table >
             <tr>
                 <th>
                     序号
@@ -34,28 +35,42 @@
                     行政区划
                 </th>
                 <th>
-                    预警名称
+                    统计截止时间
                 </th>
                 <th>
-                    预警类型
+                    死亡人数
+                </th>
+                <th>
+                    失踪人数
+                </th>
+                <th>
+                    倒塌房屋
                 </th>
             </tr>
-            <tbody data-bind="foreach:table">
-                <tr>
-                    <td   data-bind="text: XH">
-                    </td>
-                    <td>
-                        <a   data-bind="attr: { href: getURL(XH), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>
-                    </td>
-                    <td  data-bind="text: YJMC">
-                    </td>
-                    <td data-bind="text: YJLX">
-                    </td>
-                </tr>
+
+            <tbody  data-bind="foreach:table">
+            <tr>
+                <td data-bind="text: XH">
+                </td>
+                <td >
+                    <a data-bind="attr: { href: getURL(XH), title: XZQH }"> <span data-bind="text: XZQH"></span></a>
+                </td>
+                <td  data-bind="text: JZSJ">
+                </td>
+                <td  data-bind="text: SWRS">
+                </td>
+                </td>
+                <td  data-bind="text: SZRS">
+                </td>
+                <td  data-bind="text: DTFW">
+                </td>
+            </tr>
             </tbody>
 
 
         </table>
+
+
 
 
     </div>
@@ -63,18 +78,19 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="yjcx.htm" class="ui-btn-active">预警查询</a></li>
+                <li><a href="yjcx.htm" >预警查询</a></li>
                 <li><a href="yjxy.htm">响应信息</a></li>
-                <li><a href="yjzq.htm">灾情信息</a></li>
+                <li><a href="yjzq.htm"  class="ui-btn-active">灾情信息</a></li>
             </ul>
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
-            loadJson("yjcx.aspx")
+            loadJson("zqxx.aspx")
         });
         function getURL(id) {
-            return "xiangqin.htm?type=yjcx&id="+id();
+            return "xiangqin.htm?type=zqxx&id="+id();
         }
     </script>
 </div>
