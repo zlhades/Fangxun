@@ -59,10 +59,18 @@ public class MainActivity extends AppCompatActivity {
             public void onLoadResource(WebView view, String url) {
 //                if(url.endsWith("htm"))
 //                    changeTitle(url);
-//                super.onLoadResource(view, url);
+                boolean isSet = false;
+                if(url.contains(".aspx")) {
+                    isSet = true;
+                    pb.setVisibility(View.VISIBLE);
+                }
+                super.onLoadResource(view, url);
+                if(isSet) {
+                    pb.setVisibility(View.GONE);
+                }
             }
         });
-        wView.setBackgroundColor(Color.TRANSPARENT);
+        wView.setBackgroundColor(0xFFADD8E6);
 
         this.loadIndex();
 

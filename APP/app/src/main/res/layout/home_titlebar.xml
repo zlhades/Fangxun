@@ -8,8 +8,8 @@
 
     <Button
         android:id="@id/gohome_btn"
-        android:layout_width="50dip"
-        android:layout_height="wrap_content"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10.0dip"
@@ -55,15 +55,14 @@
 
     <Button
         android:id="@id/right_btn"
-        android:layout_width="50dip"
-        android:layout_height="wrap_content"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="1.0dip"
-        android:layout_marginTop="1.0dip"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
         android:background="@drawable/refresh"
         android:gravity="center"
-        android:padding="0.0dip"
+        android:padding="2.0dip"
         android:text=""
         android:textColor="#ffffffff"
         />
