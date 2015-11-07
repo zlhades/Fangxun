@@ -10,11 +10,17 @@ th{font-weight:bold;background:#ccc;}
     height:27px;
     border: solid 1px #B4B4B4;
 }
-.table_border tr td{
-    height:25px;
-    padding:4px;
+
+.table_border tr th{
+    padding-left:4px;
+    height:27px;
     border: solid 1px #B4B4B4;
 }
+.date_title{
+    background-color: transparent; border-width:0px;
+}
+.nav_date{text-align: center;}
+.footer_font {font-size: 1em}
 
 .small_font{font-size: 100%;}
 
@@ -24,7 +30,7 @@ th{font-weight:bold;background:#ccc;}
     }
 }
 
-.nav_date{text-align: center;}
+
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     background: url(../img/bg.png) 50% 0 no-repeat;
@@ -42,3 +48,5 @@ th{font-weight:bold;background:#ccc;}
 .block-center a img {width: 5em}
 /*.block-center a img {width: 70%;height: 70%}*/
 .block-center a div {font-weight: 100;color: #333333}
+
+
