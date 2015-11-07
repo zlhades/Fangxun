@@ -29,6 +29,7 @@ th{font-weight:bold;background:#ccc;}
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     background: url(../img/bg.png) 50% 0 no-repeat;
     background-size: 100% 100%;
+    background-color: lightblue;
 }
 
 .ui-header,.ui-header-fixed {
