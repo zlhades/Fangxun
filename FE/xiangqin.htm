@@ -41,8 +41,6 @@
                 if (r != null) return r[2]; return null; //返回参数值
             }
             $(document).ready(function () {
-                alert(document.location.href);
-                alert("Detail.aspx?type="+getUrlParam('type')+"&id="+getUrlParam('id'));
                 loadJson("Detail.aspx?type="+getUrlParam('type')+"&id="+getUrlParam('id'));
             });
         </script>
