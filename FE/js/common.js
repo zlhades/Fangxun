@@ -75,7 +75,7 @@ $(document).bind("mobileinit", function() {
                             break;
                     }
 
-                    var daySel = isInit? opts.DefaultDate.getDay()+1 :preValue;
+                    var daySel = isInit? opts.DefaultDate.getDate() :preValue;
                     for (var i = 1; i <= dayCount; i++) {
                         var sed = daySel==i?"selected":"";
                         var dayStr = "<option value=\"" + i + "\" "+sed+">" + convertDateValueToString(i,2) + "</option>";
@@ -163,9 +163,10 @@ function joinDate(){
 
 
 function initDate(){
-    var startTime=new Date();
-    var endTimeSeconds=startTime.getTime()-1000*60*60*2;
-    var endTime=new Date(endTimeSeconds);
+    var endTime=new Date();
+    var startTimeSeconds=endTime.getTime()-1000*60*60*2;
+
+    var startTime=new Date(startTimeSeconds);
     $.ms_DatePicker({
         YearSelector: ".sel_year",
         MonthSelector: ".sel_month",
