@@ -20,19 +20,47 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+    <div data-role="content" id="content">
 
-        <ul data-role="listview" data-inset="true">
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-            <li><a href="#" data-transition="slidedown" data-icon="info">测试用户</a></li>
-        </ul>
+
+
+        <table>
+            <tr>
+                <th>
+                    行政区划
+                </th>
+                <th>
+                    负责人
+                </th>
+                <th>
+                    负责人手机
+                </th>
+            </tr>
+            <tbody data-bind="foreach:table">
+            <tr>
+                <td data-bind="text: XZQH"></td >
+                <td data-bind="text: FZR"></td>
+                <td>
+                    <a data-bind="attr: { href: getURL(FZRSJ), title: FZRSJ }"> <span data-bind="text: FZRSJ"></span></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+
     </div>
+
+
+    <script>
+        $(document).ready(function () {
+            loadJson("lxr.aspx")
+        });
+        function getURL(number) {
+            return "tel:"+number();
+        }
+    </script>
 </div>
 </body>
 </html>

@@ -19,21 +19,22 @@
 
 <div data-role="page" id="homepage">
 
-    <div data-role="content">
+    <div data-role="content" id="content">
 
-        <ul data-role="listview" data-inset="true">
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
-            <li><a href="de.htm" data-transition="slidedown">株洲资料</a></li>
+        <ul data-role="listview" data-inset="true" data-bind="foreach:table">
+            <li><a data-bind="attr: { href: getURL(URL), title: ZLMC }"><span data-bind="text: ZLMC"></span></a></li>
         </ul>
 
 
     </div>
+    <script>
+        $(document).ready(function () {
+            loadJson("fxzl.aspx")
+        });
+        function getURL(number) {
+            return number();
+        }
+    </script>
 </div>
 </body>
 </html>
