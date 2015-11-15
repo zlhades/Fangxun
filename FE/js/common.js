@@ -157,7 +157,7 @@ function validateDate(){
     var star = new Date(getStartDateString());
     var end = new Date(getEndDateString());
     if(star.getTime()> end.getTime()) {
-        showError("开始时间必须小于结止时间");
+        showError("起始时间必须小于结止时间");
         return false;
     }
     return true;
