@@ -86,6 +86,9 @@
                 loadJson("sqxx.aspx?"+joinDate())
             });
             function reload(){
+                if(!validateDate()) {
+                   return;
+                }
                 loadForTable("sqxx.aspx?"+joinDate());
             }
             initDate();

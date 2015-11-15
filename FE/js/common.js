@@ -146,19 +146,36 @@ function loadForTable(url){
 
 function joinDate(){
 
+    var startTime = getStartDateString();
+    var endTime = getEndDateString();
+
+    return encodeURI("startTime="+startTime+"&"+"endTime="+endTime);
+}
+
+function validateDate(){
+    var star = new Date(getStartDateString());
+    var end = new Date(getEndDateString());
+    if(star.getTime()> end.getTime()) {
+        alert("开始时间必须小于结止时间");
+        return false;
+    }
+    return true;
+}
+
+function getStartDateString(){
     var year = $("#sel_year").val();
     var month = $("#sel_month").val();
     var day = $("#sel_day").val();
     var hour = $("#sel_hour").val();
+    return year+"-"+month+"-"+day+" "+hour+":00:00";
+}
 
+function getEndDateString(){
     var eyear = $("#end_sel_year").val();
     var emonth = $("#end_sel_month").val();
     var eday = $("#end_sel_day").val();
     var ehour = $("#end_sel_hour").val();
-
-    var startTime = year+"-"+month+"-"+day+" "+hour+":00:00";
-    var endTime = eyear+"-"+emonth+"-"+eday+" "+ehour+":00:00";
-    return encodeURI("startTime="+startTime+"&"+"endTime="+endTime);
+    return  eyear+"-"+emonth+"-"+eday+" "+ehour+":00:00";
 }
 
 

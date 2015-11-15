@@ -93,6 +93,9 @@
             loadJson("ylxq.aspx?"+joinDate())
         });
         function reload(){
+            if(!validateDate()) {
+                return;
+            }
             loadForTable("ylxq.aspx?"+joinDate());
         }
         initDate();
