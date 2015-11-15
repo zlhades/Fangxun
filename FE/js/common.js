@@ -139,6 +139,7 @@ function loadJson(url){
 }
 
 function loadForTable(url){
+    clearError();
     $.getJSON(httpPrefix+url, function(result){
         viewModel.table(result.table);
     });
@@ -156,12 +157,19 @@ function validateDate(){
     var star = new Date(getStartDateString());
     var end = new Date(getEndDateString());
     if(star.getTime()> end.getTime()) {
-        alert("开始时间必须小于结止时间");
+        showError("开始时间必须小于结止时间");
         return false;
     }
     return true;
 }
 
+function showError(message){
+    $("#errorMessage").html(message);
+    $("#errorMessage").css("display","block");
+}
+function clearError(){
+    $("#errorMessage").css("display","none");
+}
 function getStartDateString(){
     var year = $("#sel_year").val();
     var month = $("#sel_month").val();
