@@ -80,16 +80,27 @@
 
 
         </div>
-        
+
+
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="sqsk.htm"   class="ui-btn-active"  style="font-size: 0.9em">水库水情</a></li>
+                    <li><a href="sqhd.htm" style="font-size: 0.9em">河道水情</a></li>
+                </ul>
+            </div>
+        </div>
+
         <script>
             $(document).ready(function () {
-                loadJson("sqxx.aspx?"+joinDate())
+                loadJson("sksq.aspx?"+joinDate())
             });
             function reload(){
                 if(!validateDate()) {
                    return;
                 }
-                loadForTable("sqxx.aspx?"+joinDate());
+                loadForTable("sksq.aspx?"+joinDate());
             }
             initDate();
         </script>

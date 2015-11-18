@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css"/>
+    <script src="js/jquery/jquery-1.11.3.min.js"></script>
+    <script type='text/javascript' src='js/knockout.js'></script>
+    <script type='text/javascript' src='js/knockout.mapping-latest.js'></script>
+    <script src="js/common.js"></script>
+    <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+
+    <div data-role="page" id="homepage">
+        <div data-role="navbar" class="nav_date errorMessage" id="errorMessage"></div>
+
+        <div data-role="navbar" class="nav_date">
+            <div class="ui-grid-b" style="horiz-align:center">
+                <div style="horiz-align: right;float: left;" class="date_div">
+                    <div   >
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true"  class="date_div" >
+                            <a href="#" class="ui-btn ui-corner-all" style="background-color: transparent; border-width:0px; padding-right: 0px;text-overflow:clip" >起:</a>
+                            <select name="s1" class="sel_year"  id="sel_year"> </select>
+                            <select name="s2" class="sel_month" id="sel_month" > </select>
+                            <select name="s3" class="sel_day" id="sel_day">  </select>
+                            <select name="s4"  class="sel_hour" id="sel_hour"> </select>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
+                            <a href="#" class="ui-btn ui-corner-all" style="background-color: transparent; border-width:0px; padding-right: 0px;text-overflow:clip">止:</a>
+                            <select name="s1" class="end_sel_year" id="end_sel_year"></select>
+                            <select name="s2" class="end_sel_month" id="end_sel_month">   </select>
+                            <select name="s3" class="end_sel_day" id="end_sel_day" ></select>
+                            <select name="s4" class="end_sel_hour"  id="end_sel_hour" > </select>
+                        </fieldset>
+                    </div>
+                </div>
+                <div  style="width: 2em;margin-top: 1.8em;float: left">
+                    <a href="javascript:reload()" class="ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all">No text</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div data-role="content" id="content">
+
+
+            <table >
+                <thead>
+                <tr>
+                    <th data-priority="persist">序号</th>
+                    <th data-priority="persist" >行政区划</th>
+                    <th data-priority="persist" style="min-width: 25%" >站名</th>
+                    <th data-priority="persist" >水位</th>
+                    <th data-priority="persist">警戒/汛限</th>
+                    <th data-priority="persist" >时间</th>
+                </tr>
+
+                </thead>
+                <tbody data-bind="foreach:table">
+                <tr style="text-align: center">
+                    <td data-bind="text: XH"></td>
+                    <td data-bind="text: XZQH"></td>
+                    <td data-bind="text: ZM"></td>
+                    <td data-bind="text: SW"></td>
+                    <td data-bind="text: JJXX"></td>
+                    <td data-bind="text: CJSJ"></td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="sqsk.htm"   style="font-size: 0.9em">水库水情</a></li>
+                    <li><a href="sqhd.htm"   class="ui-btn-active" style="font-size: 0.9em">河道水情</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                loadJson("hdsq.aspx?"+joinDate())
+            });
+            function reload(){
+                if(!validateDate()) {
+                   return;
+                }
+                loadForTable("hdsq.aspx?"+joinDate());
+            }
+            initDate();
+        </script>
+
+    </div>
+</body>
+</html>
