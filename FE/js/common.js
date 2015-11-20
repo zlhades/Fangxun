@@ -164,9 +164,10 @@ function joinDate(){
 
 function initDate(){
     var endTime=new Date();
-    var startTimeSeconds=endTime.getTime()-1000*60*60*2;
-
+    var startTimeSeconds=endTime.getTime()-1000*60*60*24;
     var startTime=new Date(startTimeSeconds);
+    startTime.setHours(8);
+
     $.ms_DatePicker({
         YearSelector: ".sel_year",
         MonthSelector: ".sel_month",
