@@ -135,6 +135,16 @@ function loadData(data){
 function loadJson(url){
     $.getJSON(httpPrefix+url, function(result){
         loadData(result);
+
+        $("tr[testid='1']").each(
+            function(){
+                var value =  $(this).attr("testid");
+                var string = "<tr><th colspan='5' style='width: 100%'>"+value+"</th></tr>";
+                alert(string);
+                //$(this).html(string+ $(this).html())
+                $(this).before(string);
+            }
+        );
     });
 }
 
