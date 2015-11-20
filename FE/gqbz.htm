@@ -25,7 +25,7 @@
 
 
 
-        <table id="tab">
+        <table>
             <tr>
                 <th>
                     序号
@@ -43,8 +43,8 @@
                     装机容量
                 </th>
             </tr>
-        <tbody data-bind="foreach:table" >
-            <tr data-bind="attr: { testid: XH }">
+        <tbody data-bind="foreach:table">
+            <tr>
                 <td data-bind="text: XH"></td >
                 <td data-bind="text: XZQH"></td>
                 <td>
@@ -72,8 +72,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            loadJson("bzxx.aspx");
-
+            loadJson("bzxx.aspx")
         });
         function getURL(id) {
             return "xiangqin.htm?type=bzxx&id="+id();
