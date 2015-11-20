@@ -1,12 +1,17 @@
 package fx.com.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,18 +24,22 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    //    public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
-    public static final String INDEX_PAGE = "http://111.1.31.149/fx/index.htm";
+        public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
+//    public static final String INDEX_PAGE = "http://111.1.31.149/fx/index.htm";
     //    Button right;
     Button left;
     Button right;
     WebView wView;
     TextView titleBar;
     ProgressBar pb;
+    ConnectionDetector connectionDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        connectionDetector = new ConnectionDetector(this.getApplicationContext());
 
         pb = (ProgressBar) findViewById(R.id.pb);
         pb.setMax(100);
@@ -42,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         wView.setWebChromeClient(new WebChromeClientCustom());
         wView.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.startsWith("tel:")) {
+                    call(url);
+                    return true;
+                }
                 pb.setVisibility(View.VISIBLE);
                 changeTitle(url);
                 wView.loadUrl(url);
@@ -57,16 +70,26 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLoadResource(WebView view, String url) {
-//                if(url.endsWith("htm"))
-//                    changeTitle(url);
+
+
                 boolean isSet = false;
-                if(url.contains(".aspx")) {
+                if (url.contains(".aspx")) {
                     isSet = true;
                     pb.setVisibility(View.VISIBLE);
                 }
                 super.onLoadResource(view, url);
-                if(isSet) {
+                if (isSet) {
                     pb.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+
+                if (!connectionDetector.isConnectingToInternet()) {
+                    showAlertDialog("出错了","请确网络连接。");
+                } else {
+                    showAlertDialog( "出错了", "无法连接到服务器。");
                 }
             }
         });
@@ -92,14 +115,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-
+//        if (!connectionDetector.isConnectingToInternet()) {
+//            showAlertDialog("出错了", "请确网络连接。");
+//        }
     }
 
     private void changeTitle(String url) {
         String[] result = url.split("/");
 
         setTitle(result[result.length - 1]);
-        if (url!=null && url.contains("index.htm")) {
+        if (url != null && url.contains("index.htm")) {
             disableLeftButton();
         } else {
             enaLeftButton();
@@ -108,17 +133,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private final static Map<String, String> URL_TO_NAME = new HashMap<>();
+
     static {
-        URL_TO_NAME.put("index.htm","株洲防汛");
-        URL_TO_NAME.put("xq.htm","汛情摘要");
-        URL_TO_NAME.put("ylxq.htm","雨情信息");
-        URL_TO_NAME.put("sq.htm","水情信息");
-        URL_TO_NAME.put("yjcx.htm","预警查询");
-        URL_TO_NAME.put("gqsk.htm","工情信息");
-        URL_TO_NAME.put("tq.htm","天气预报");
-        URL_TO_NAME.put("zl.htm","防汛资料");
-        URL_TO_NAME.put("tx.htm","防汛通讯录");
-        URL_TO_NAME.put("sz.htm","系统设置");
+        URL_TO_NAME.put("index.htm", "株洲防汛");
+        URL_TO_NAME.put("xq.htm", "汛情摘要");
+        URL_TO_NAME.put("ylxq.htm", "雨情信息");
+        URL_TO_NAME.put("sq.htm", "水情信息");
+        URL_TO_NAME.put("yjcx.htm", "预警查询");
+        URL_TO_NAME.put("gqsk.htm", "工情信息");
+        URL_TO_NAME.put("tq.htm", "天气预报");
+        URL_TO_NAME.put("zl.htm", "防汛资料");
+        URL_TO_NAME.put("tx.htm", "防汛通讯录");
+        URL_TO_NAME.put("sz.htm", "系统设置");
     }
 
     private void setTitle(String text) {
@@ -159,12 +185,32 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             pb.setProgress(newProgress);
-            if(newProgress==100){
+            if (newProgress == 100) {
                 pb.setVisibility(View.GONE);
             }
             super.onProgressChanged(view, newProgress);
         }
 
     }
+
+    public void call(String phoneUrl) {
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(phoneUrl));
+        startActivity(intent);
+    }
+
+    public void showAlertDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setTitle(title);
+        builder.setNegativeButton("刷新", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+                 dialog.dismiss();
+                 loadIndex();
+             }
+         });
+        builder.create().show();
+    }
+
 
 }
