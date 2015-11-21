@@ -136,13 +136,14 @@ function loadJson(url){
     $.getJSON(httpPrefix+url, function(result){
         loadData(result);
 
-        $("tr[testid='1']").each(
+        $("tr[FGF=true]").each(
             function(){
-                var value =  $(this).attr("testid");
-                var string = "<tr><th colspan='5' style='width: 100%'>"+value+"</th></tr>";
-                alert(string);
+                var value =  $(this).attr("FGZ");
+                var string = "<tr><th colspan='6' style='width: 100%;text-align: left'>"+value+"</th></tr>";
+                //alert(string);
                 //$(this).html(string+ $(this).html())
                 $(this).before(string);
+                $(this).remove();
             }
         );
     });

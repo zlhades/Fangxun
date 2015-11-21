@@ -65,7 +65,7 @@
 
                 </thead>
                 <tbody data-bind="foreach:table">
-                <tr style="text-align: center">
+                <tr data-bind="attr: { FGF: FGF, FGZ:FGZ }" >
                     <td data-bind="text: XH"></td>
                     <td data-bind="text: XZQH"></td>
                     <td data-bind="text: ZM"></td>
@@ -94,13 +94,13 @@
 
         <script>
             $(document).ready(function () {
-                loadJson("sqxx.aspx?"+joinDate())
+                loadJson("sksq.aspx?"+joinDate())
             });
             function reload(){
                 if(!validateDate()) {
                    return;
                 }
-                loadForTable("sqxx.aspx?"+joinDate());
+                loadForTable("sksq.aspx?"+joinDate());
             }
             initDate();
         </script>
