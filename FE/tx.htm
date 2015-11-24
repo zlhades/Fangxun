@@ -26,22 +26,26 @@
 
         <table>
             <tr>
+                <th> 序号 </th>
+                <th> 单位 </th>
                 <th>
-                    行政区划
+                    姓名
                 </th>
                 <th>
-                    负责人
+                    职务
                 </th>
                 <th>
-                    负责人手机
+                    手机
                 </th>
             </tr>
             <tbody data-bind="foreach:table">
             <tr>
-                <td data-bind="text: XZQH"></td >
-                <td data-bind="text: FZR"></td>
+                <td data-bind="text: XH"></td >
+                <td data-bind="text: DW"></td>
+                <td data-bind="text: XM"></td >
+                <td data-bind="text: ZW"></td>
                 <td>
-                    <a data-bind="attr: { href: getURL(FZRSJ), title: FZRSJ }"> <span data-bind="text: FZRSJ"></span></a>
+                    <a data-bind="attr: { href: getURL(SJ), title: SJ }"> <span data-bind="text: SJ"></span></a>
                 </td>
             </tr>
             </tbody>
