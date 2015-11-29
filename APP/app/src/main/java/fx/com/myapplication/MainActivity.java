@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         WebSettings wSet = wView.getSettings();
         wSet.setJavaScriptEnabled(true);
         wView.setWebChromeClient(new WebChromeClientCustom());
+        wView.setDownloadListener(new MyWebViewDownLoadListener());
         wView.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.startsWith("tel:")) {
@@ -85,14 +87,19 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                wView.stopLoading();
+
+                wView.stopLoading();
+                wView.loadUrl("about:blank");
+//                wView.loadUrl("file:///android_asset/ERROR.htm"); ;
 
                 if (!connectionDetector.isConnectingToInternet()) {
                     showAlertDialog("出错了","请确网络连接。");
                 } else {
                     showAlertDialog( "出错了", "无法连接到服务器。");
-                }
-            }
-        });
+    }
+}
+});
         wView.setBackgroundColor(0xFFADD8E6);
 
         this.loadIndex();
@@ -170,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
             wView.goBack();
             return true;
         }
-        return false;
+        return  super.onKeyDown(keyCoder, event);
     }
 
     private void loadIndex() {
@@ -194,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void call(String phoneUrl) {
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(phoneUrl));
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneUrl));
         startActivity(intent);
     }
 
@@ -211,6 +218,19 @@ public class MainActivity extends AppCompatActivity {
          });
         builder.create().show();
     }
+
+
+    private class MyWebViewDownLoadListener implements DownloadListener {
+
+        @Override
+        public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype,
+                                    long contentLength) {
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+    }
+
 
 
 }
