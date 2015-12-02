@@ -25,6 +25,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String VERSION = "1.1";
         public static final String INDEX_PAGE = "http://www.zzsw.gov.cn:8088/index.htm";
 //    public static final String INDEX_PAGE = "http://111.1.31.149/fx/index.htm";
     //    Button right;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 if (url.startsWith("tel:")) {
                     call(url);
                     return true;
+                } else if(url.endsWith("version.htm")) {
+                     url+="?version="+VERSION;
                 }
                 pb.setVisibility(View.VISIBLE);
                 changeTitle(url);
