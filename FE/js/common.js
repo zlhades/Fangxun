@@ -199,10 +199,18 @@ function getEndDateString(){
 
 
 function initDate(){
-    var endTime=new Date();
-    var startTimeSeconds=endTime.getTime()-1000*60*60*24;
+    var nowDate=new Date();
+    var startTimeSeconds=nowDate.getTime();
+    if(nowDate.getHours()< 12) {
+        startTimeSeconds=nowDate.getTime()-1000*60*60*24;
+    }
     var startTime=new Date(startTimeSeconds);
     startTime.setHours(8);
+    var endTime=new Date();
+    if(endTime.getMinutes() > 0) {
+        endTime.setHours(endTime.getHours()+1);
+    }
+
 
     $.ms_DatePicker({
         YearSelector: ".sel_year",
