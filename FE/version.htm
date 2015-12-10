@@ -27,11 +27,14 @@
             <tbody >
             <tr>
                 <th >版本号</th>
-                <td >1.0</td>
+                <td>
+                    <span data-bind="text: VERSION"></span>   <a data-bind="attr: { href: APPURL, title: VERSION }"> <span data-bind="text: UPDATE"></span></a>
+                </td>
+
             </tr>
             <tr>
                 <th >版本发布日期</th>
-                <td >2015年11月8号</td>
+                <td data-bind="text: VDATE"></td >
             </tr>
             </tbody>
         </table>
@@ -41,5 +44,14 @@
 
 
 </div>
+<script>
+    $(document).ready(function () {
+//        alert("AppVersion.aspx?Version="+ getQueryString('version'));
+        loadJson("AppVersion.aspx?Version="+ getQueryString('version'))
+    });
+    function getURL(id) {
+        return httpPrefix+id();
+    }
+</script>
 </body>
 </html>
