@@ -21,6 +21,11 @@
 
     <div data-role="content" id="content">
 
+        <div data-role="navbar" >
+            <div>
+                <span style="font-weight: 900">政区预警</span>
+            </div>
+        </div>
 
         <table>
             <tr>
@@ -37,23 +42,71 @@
                 <th>
                     预警类型
                 </th>
+                <th>
+                    预警时间
+                </th>
             </tr>
             <tbody data-bind="foreach:table">
                 <tr>
                     <td   data-bind="text: XH">
                     </td>
-                    <td>
-                        <a   data-bind="attr: { href: getURL(ID), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>
+
+                        <!--<a   data-bind="attr: { href: getURL(ID), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>-->
+                     <td   data-bind="text: XZQH">
                     </td>
                     <td  data-bind="text: YJMC">
                     </td>
                     <td data-bind="text: YJLX">
+                    </td>
+                    <td data-bind="text: YJSJ">
                     </td>
                 </tr>
             </tbody>
 
 
         </table>
+
+
+        <div data-role="navbar" >
+            <div>
+                <span style="font-weight: 900">预警测站</span>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>
+                    序号
+                </th>
+
+                <th>
+                    预警时间
+                </th>
+                <th>
+                    预警类型
+                </th>
+                <th>
+                    预警说明
+                </th>
+            </tr>
+            <tbody data-bind="foreach:table2">
+            <tr>
+                <td   data-bind="text: XH">
+                </td>
+
+                    <!--<a   data-bind="attr: { href: getURL(ID), title: XZQH }"   > <span data-bind="text: XZQH"></span></a>-->
+                <td   data-bind="text: YJSJ">
+                </td>
+                <td  data-bind="text: YJLX">
+                </td>
+                <td data-bind="text: YJSM">
+                </td>
+            </tr>
+            </tbody>
+
+
+        </table>
+
 
 
     </div>
@@ -63,7 +116,7 @@
             <ul>
                 <li><a href="yjcx.htm" class="ui-btn-active" style="font-size: 0.9em">预警查询</a></li>
                 <li><a href="yjxy.htm" style="font-size: 0.9em">响应信息</a></li>
-                <li><a href="yjzq.htm" style="font-size: 0.9em">灾情信息</a></li>
+                <!--<li><a href="yjzq.htm" style="font-size: 0.9em">灾情信息</a></li>-->
             </ul>
         </div>
     </div>

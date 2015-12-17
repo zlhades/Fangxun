@@ -21,18 +21,22 @@
 
     <div data-role="content" id="content">
 
-
+        <div data-role="navbar" >
+        <div>
+            <span style="font-weight: 900">预警测站</span>
+        </div>
+    </div>
         <table>
             <tr>
                 <th>
-                    序号
+                    行政区划
                 </th>
 
                 <th>
-                    行政区划
+                    反馈时间
                 </th>
                 <th>
-                    反馈时间
+                    需转移人数
                 </th>
                 <th>
                     已转移人数
@@ -40,22 +44,52 @@
             </tr>
             <tbody data-bind="foreach:table">
             <tr>
-                <td data-bind="text: XH">
-                </td>
+                <td data-bind="text: XZQH"> </td>
+                <td data-bind="text: FKSJ"> </td>
 
-                <td>
-                    <a data-bind="attr: { href: getURL(ID), title: XZQH }"> <span data-bind="text: XZQH"></span></a>
-                </td>
-                <td data-bind="text: FKSJ">
-                </td>
-                <td data-bind="text: YZYRS">
-                </td>
+                <td data-bind="text: YZYRS"></td>
+                <td data-bind="text: YZYRS"></td>
             </tr>
             </tbody>
 
 
         </table>
 
+
+
+        <div data-role="navbar" >
+            <div>
+                <span style="font-weight: 900">响应信息</span>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>
+                    行政区划
+                </th>
+
+                <th>
+                    开始时间
+                </th>
+                <th>
+                    结束时间
+                </th>
+                <th>
+                    响应启动人
+                </th>
+            </tr>
+            <tbody data-bind="foreach:table2">
+            <tr>
+                <td data-bind="text: XZQH"> </td>
+                <td data-bind="text: KSSJ"> </td>
+
+                <td data-bind="text: JSSJ"></td>
+                <td data-bind="text: XYQDR"></td>
+            </tr>
+            </tbody>
+
+
+        </table>
 
     </div>
 
@@ -64,7 +98,7 @@
             <ul>
                 <li><a href="yjcx.htm" style="font-size: 0.9em">预警查询</a></li>
                 <li><a href="yjxy.htm" class="ui-btn-active" style="font-size: 0.9em">响应信息</a></li>
-                <li><a href="yjzq.htm" style="font-size: 0.9em">灾情信息</a></li>
+                <!--<li><a href="yjzq.htm" style="font-size: 0.9em">灾情信息</a></li>-->
             </ul>
         </div>
     </div>
