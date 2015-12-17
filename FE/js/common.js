@@ -123,6 +123,26 @@ function convertDateValueToString(number,type){
 }
 
 var viewModel;
+
+function changeTableHeadLine() {
+    $("tr[FGF=true]").each(
+        function () {
+            var value = $(this).attr("FGZ");
+            var string = "<tr><th colspan='6' style='width: 100%;text-align: left'>" + value + "</th></tr>";
+            //alert(string);
+            //$(this).html(string+ $(this).html())
+            $(this).before(string);
+            $(this).remove();
+        }
+    );
+}
+function loadJson(url){
+    $.getJSON(httpPrefix+url, function(result){
+        loadData(result);
+        changeTableHeadLine();
+    });
+}
+
 function loadData(data){
 
     ko.cleanNode(document.getElementById("content"));
@@ -132,27 +152,11 @@ function loadData(data){
 
 }
 
-function loadJson(url){
-    $.getJSON(httpPrefix+url, function(result){
-        loadData(result);
-
-        $("tr[FGF=true]").each(
-            function(){
-                var value =  $(this).attr("FGZ");
-                var string = "<tr><th colspan='6' style='width: 100%;text-align: left'>"+value+"</th></tr>";
-                //alert(string);
-                //$(this).html(string+ $(this).html())
-                $(this).before(string);
-                $(this).remove();
-            }
-        );
-    });
-}
-
 function loadForTable(url){
     clearError();
     $.getJSON(httpPrefix+url, function(result){
         viewModel.table(result.table);
+        changeTableHeadLine();
     });
 }
 
