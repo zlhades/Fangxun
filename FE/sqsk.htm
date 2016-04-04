@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -56,22 +56,22 @@
                 <thead>
                 <tr>
                     <th data-priority="persist">序号</th>
-                    <!--<th data-priority="persist" class="xzqf_th">行政区划</th>-->
                     <th data-priority="persist" style="min-width: 25%" >站名</th>
                     <th data-priority="persist" >水位</th>
                     <th data-priority="persist">警戒/汛限</th>
                     <th data-priority="persist" >时间</th>
+                    <th data-priority="persist" class="xzqf_th">区域</th>
                 </tr>
 
                 </thead>
                 <tbody data-bind="foreach:table">
                 <tr data-bind="attr: { FGF: FGF, FGZ:FGZ }" >
                     <td data-bind="text: XH"></td>
-                    <!--<td data-bind="text: XZQH"></td>-->
-                    <td data-bind="text: ZM"></td>
+                    <td data-bind="text: ZM" nowrap="nowrap" style="white-space:nowrap;"></td>
                     <td data-bind="text: SW"></td>
                     <td data-bind="text: JJXX"></td>
                     <td data-bind="text: CJSJ"></td>
+                    <td data-bind="text: XZQH" nowrap="nowrap" style="white-space:nowrap;"></td>
                 </tr>
 
                 </tbody>

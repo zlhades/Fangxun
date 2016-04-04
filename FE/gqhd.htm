@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -30,9 +30,6 @@
                     序号
                 </th>
                 <th>
-                    行政区划
-                </th>
-                <th>
                     河流名称
                 </th>
                 <th>
@@ -41,16 +38,19 @@
                 <th>
                     流域面积
                 </th>
+                <th class="xzqf_th">
+                    区域
+                </th>
             </tr>
         <tbody data-bind="foreach:table">
              <tr data-bind="attr: { FGF: FGF, FGZ:FGZ }" >
                 <td data-bind="text: XH"></td >
-                <td data-bind="text: XZQH"></td>
                 <td class="longTd">
                     <a data-bind="attr: { href: getURL(ID), title: HLMC }"> <span data-bind="text: HLMC"></span></a>
                 </td>
                 <td data-bind="text: CD"></td>
                 <td data-bind="text: LYMJ"></td>
+                <td data-bind="text: XZQH" nowrap="nowrap" style="white-space:nowrap;"></td>
             </tr>
         </tbody>
         </table>
