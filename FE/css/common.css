@@ -47,5 +47,6 @@ th{font-weight:bold;background:#ccc;}
 .block-center a div {font-weight: 100;color: #333333}
 .errorMessage {background-color: orange;font-weight:900;display: none }
 .xzqf_th{min-width: 2em}
+.longTd{text-align: left}
 
 
